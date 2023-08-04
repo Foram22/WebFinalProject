@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Welcome Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Cambrian College!!..</h1>
+    <img src="Images/college_icon_cambrian.png" alt="Cambrian Logo" />
+</div>
+
+<script>
+
+    setTimeout(function () {
+        window.location.href = '@Url.Action("Index", "Home")';
+    }, 3000); // 3000 milliseconds (3 seconds)
+
+    // Wait for 3 seconds before redirecting to Action2
+    //$(document).ready(function() {
+      //  setTimeout(function() {
+        //    window.location.href = '@Url.Action("Action2", "SplashController")';
+       // }, 3000);
+   // });
+</script>
+
