@@ -15,6 +15,21 @@ namespace WebFinalProject.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Forgot(string email, string password, string confirm_password)
+        {
+            if (email != null && password != null && password == confirm_password)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+            else
+            {
+                // Authentication failed, show an error message
+                ViewBag.ErrorMessage = "Invalid username or password";
+                return View();
+            }
+        }
     }
 }
 

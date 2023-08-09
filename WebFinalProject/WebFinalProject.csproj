@@ -14,6 +14,7 @@
     <None Remove="Views\Login\" />
     <None Remove="Views\ForgotPassword\" />
     <None Remove="Views\Register\" />
+    <None Remove="Views\Role\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
@@ -21,6 +22,7 @@
     <Folder Include="Views\Login\" />
     <Folder Include="Views\ForgotPassword\" />
     <Folder Include="Views\Register\" />
+    <Folder Include="Views\Role\" />
   </ItemGroup>
   <ItemGroup>
     <Content Update="Views\Home\Index.cshtml">
@@ -48,6 +50,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Views\Register\Register.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Views\Role\Login.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Views\Role\Role.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

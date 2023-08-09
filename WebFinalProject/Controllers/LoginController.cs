@@ -17,9 +17,9 @@ namespace WebFinalProject.Controllers
         }
 
         [HttpPost]
-        public ActionResult Login(string username, string password)
+        public ActionResult Login(string email, string password)
         { 
-            if (username == "yourusername" && password == "yourpassword")
+            if (email == "foram@gmail.com" && password == "Foram@2211")
             {
                 // Authentication successful, redirect to a dashboard or other page
                 return RedirectToAction("Index", "Home");

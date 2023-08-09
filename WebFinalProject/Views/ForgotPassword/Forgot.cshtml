@@ -2,3 +2,34 @@
     ViewData["Title"] = "Forgot";
 }
 
+<div>
+    <h2>Forgot Password</h2>
+    @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+    {
+        <div class="alert alert-danger">
+            @ViewBag.ErrorMessage
+        </div>
+    }
+
+    @using (Html.BeginForm("Forgot", "ForgotPassword", FormMethod.Post))
+    {
+        <div style="margin-top: 30px;">
+            <label for="email" style="font-weight: bold; color: palevioletred">Email</label>
+            <input type="email" name="email" class="form-control" placeholder="Enter email here." style="color;" />
+        </div>
+
+        <div style="margin-top: 30px;">
+            <label for="password" style="font-weight: bold; color: palevioletred">Password</label>
+            <input type="password" name="password" class="form-control" placeholder="Enter password here." style="color: gray;" />
+        </div>
+
+        <div style="margin-top: 30px;">
+            <label for="confirm_password" style="font-weight: bold; color: palevioletred">Confirm Password</label>
+            <input type="password" name="confirm_password" class="form-control" placeholder="Enter password here." style="color: gray;" />
+        </div>
+
+        <button type="submit" style="margin-top: 40px; color: white; background-color: palevioletred; width: 100%; padding: 10px; border: none; border-radius: 7px; font-weight: bold; font-size: 20px;">Change Password</button>
+    }
+</div>
+
+
