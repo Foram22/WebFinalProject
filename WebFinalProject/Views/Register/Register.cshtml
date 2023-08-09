@@ -1,4 +1,41 @@
 ﻿@{
-    ViewData["Title"] = "Login";
+    ViewData["Title"] = "Register";
 }
+
+<div>
+    <h2>Register</h2>
+    @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+    {
+        <div class="alert alert-danger">
+            @ViewBag.ErrorMessage
+        </div>
+    }
+
+    @using (Html.BeginForm("Register", "Register", FormMethod.Post))
+    {
+        <div style="margin-top: 30px;">
+            <label for="name" style="font-weight: bold; color: palevioletred">Name</label>
+            <input type="text" name="name" class="form-control" placeholder="Enter name here." style="color;" />
+        </div>
+
+        <div style="margin-top: 30px;">
+            <label for="email" style="font-weight: bold; color: palevioletred">Email</label>
+            <input type="email" name="email" class="form-control" placeholder="Enter email here." style="color;" />
+        </div>
+
+        <div style="margin-top: 30px;">
+            <label for="password" style="font-weight: bold; color: palevioletred">Password</label>
+            <input type="password" name="password" class="form-control" placeholder="Enter password here." style="color: gray;" />
+        </div>
+
+        <button type="submit" style="margin-top: 40px; color: white; background-color: palevioletred; width: 100%; padding: 10px; border: none; border-radius: 7px; font-weight: bold; font-size: 20px;">Continue</button>
+
+        <div style="margin-top: 10px; display: flex;">
+            <label style="color: gray; font-weight: bold">Have an Account? </label>
+            <a href="@Url.Action("Login", "Login")" style="color: palevioletred; font-weight: bold">Sign In</a>
+        </div>
+    }
+</div>
+
+
 
