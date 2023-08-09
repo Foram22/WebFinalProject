@@ -15,6 +15,19 @@ namespace WebFinalProject.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Role(string role)
+        {
+            if (role != null)
+            {
+                return RedirectToAction("Login", "Login");
+            }
+            else {
+                ViewBag.SelectedRole = "Please select any role.";
+                return View();
+            }
+        }
     }
 }
 
