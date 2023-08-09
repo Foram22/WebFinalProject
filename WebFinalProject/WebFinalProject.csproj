@@ -11,10 +11,16 @@
   <ItemGroup>
     <None Remove="Images\" />
     <None Remove="Views\Splash\" />
+    <None Remove="Views\Login\" />
+    <None Remove="Views\ForgotPassword\" />
+    <None Remove="Views\Register\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
     <Folder Include="Views\Splash\" />
+    <Folder Include="Views\Login\" />
+    <Folder Include="Views\ForgotPassword\" />
+    <Folder Include="Views\Register\" />
   </ItemGroup>
   <ItemGroup>
     <Content Update="Views\Home\Index.cshtml">
@@ -24,6 +30,24 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Update="Views\Splash\Welcome.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Views\Login\Index.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Views\Login\Login.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Views\Forgot\forgot.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Views\Forgot\Forgot.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Views\Register\Login.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Update="Views\Register\Register.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+
+<head>
+    <link href="~/Content/site.css" rel="stylesheet" type="text/css" />
+</head>
+
+<div class="text-center">
+    <img src="/Images/college_icon_cambrian.png" alt="Cambrian Logo" />
+</div>
+
+<div>
+    <h2>Login</h2>
+    <label style="color: gray">Hi there! Nice to see you again.</label>
+    @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+    {
+        <div class="alert alert-danger">
+            @ViewBag.ErrorMessage
+        </div>
+    }
+
+    @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+    {
+        <div style="margin-top: 30px;">
+            <label for="email" style="font-weight: bold; color: palevioletred">Email</label>
+            <input type="email" name="email" class="form-control" placeholder="Enter email here." style="color;" />
+        </div>
+
+        <div style="margin-top: 30px;">
+            <label for="password" style="font-weight: bold; color: palevioletred">Password</label>
+            <input type="password" name="password" class="form-control" placeholder="Enter password here." style="color: gray;" />
+        </div>
+
+        <button type="submit" style="margin-top: 40px; color: white; background-color: palevioletred; width: 100%; padding: 10px; border: none; border-radius: 7px; font-weight: bold; font-size: 20px;">Login</button>
+
+        <div style="margin-top: 20px;">
+            <a href="@Url.Action("Forgot", "ForgotPassword")" style="color: gray; font-weight: bold">Forgot Password?</a>
+        </div>
+
+        <div style="margin-top: 10px; display: flex">
+            <label style="color: gray; font-weight: bold">New User? </label>
+            <a href="@Url.Action("Register", "Register")" style="color: palevioletred; font-weight: bold">Register</a>
+        </div>
+    }
+</div>
+
