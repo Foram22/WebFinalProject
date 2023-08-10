@@ -39,6 +39,7 @@ namespace WebFinalProject.Controllers
 
                             if (userToUpdate != null)
                             {
+                                userModel.Role = role;
                                 await userToUpdate.PutAsync(userModel);
                                 return RedirectToAction("Login", "Login");
                             }
