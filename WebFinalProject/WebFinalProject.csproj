@@ -25,9 +25,6 @@
     <Folder Include="Views\Role\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Update="Views\Home\Index.cshtml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Update="Views\Splash\Index.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

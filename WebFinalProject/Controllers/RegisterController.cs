@@ -19,17 +19,17 @@ namespace WebFinalProject.Controllers
         [HttpPost]
         public ActionResult Register(string name, string email, string password)
         {
-            //if (email == "foram@gmail.com" && password == "Foram@2211" && name == "Foram")
-            //{
+            if (email == "foram@gmail.com" && password == "Foram@2211" && name == "Foram")
+            {
                 // Authentication successful, redirect to a dashboard or other page
                 return RedirectToAction("Role", "Role");
-            //}
-            //else
-            //{
-            //    // Authentication failed, show an error message
-            //    ViewBag.ErrorMessage = "Invalid input entries";
-            //    return View();
-            //}
+            }
+            else
+            {
+                // Authentication failed, show an error message
+                ViewBag.ErrorMessage = "Invalid input entries";
+                return View();
+            }
         }
     }
 }

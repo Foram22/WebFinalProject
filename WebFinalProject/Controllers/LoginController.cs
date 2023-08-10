@@ -19,17 +19,17 @@ namespace WebFinalProject.Controllers
         [HttpPost]
         public ActionResult Login(string email, string password)
         { 
-            if (email == "foram@gmail.com" && password == "Foram@2211")
-            {
+            //if (email == "foram@gmail.com" && password == "Foram@2211")
+            //{
                 // Authentication successful, redirect to a dashboard or other page
-                return RedirectToAction("Index", "Home");
-            }
-            else
-            {
-                // Authentication failed, show an error message
-                ViewBag.ErrorMessage = "Invalid username or password";
-                return View();
-            }
+                return RedirectToAction("Home", "Dashboard");
+            //}
+            //else
+            //{
+            //    // Authentication failed, show an error message
+            //    ViewBag.ErrorMessage = "Invalid username or password";
+            //    return View();
+            //}
         }
     }
 }
