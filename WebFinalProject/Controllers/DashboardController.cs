@@ -8,7 +8,12 @@ public class DashboardController : Controller
 {
     public ActionResult Home()
     {
-        return View();
+        List<string> items = new List<string>
+        {
+            "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 5", "Item 6"  // Add more items as needed
+        };
+
+        return View(items);
     }
 
     public ActionResult Notification()
