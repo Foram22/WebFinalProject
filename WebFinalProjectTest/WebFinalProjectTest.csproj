@@ -23,4 +23,10 @@
   <ItemGroup>
     <ProjectReference Include="..\WebFinalProject\WebFinalProject.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Tests\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Tests\" />
+  </ItemGroup>
 </Project>

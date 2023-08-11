@@ -57,7 +57,8 @@ namespace WebFinalProject.Controllers
             catch (FirebaseAuthException ex)
             {
                 ModelState.AddModelError(String.Empty, ex.Message);
-                return View();
+                ViewBag.ErrorMessage = ex.Message;
+                return View("Register");
             }
 
         }

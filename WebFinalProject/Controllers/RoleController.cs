@@ -67,7 +67,7 @@ namespace WebFinalProject.Controllers
                 ViewBag.SelectedRole = "Please select any role.";
             }
 
-            return View(ViewBag.SelectedRole);
+            return View("Role");
         }
     }
 }

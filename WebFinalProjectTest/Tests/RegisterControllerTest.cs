@@ -1,10 +1,9 @@
-﻿
-using WebFinalProject.Controllers;
+﻿using WebFinalProject.Controllers;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace WebFinalProject.WebFinalProjectTest
+namespace WebFinalProject.WebFinalProjectTest.Tests
 {
     public class RegisterControllerTest
     {
