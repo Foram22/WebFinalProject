@@ -16,6 +16,7 @@ namespace WebFinalProject.Controllers
 
         public RegisterController()
         {
+            //auth = authProvider;
             auth = new FirebaseAuthProvider(new FirebaseConfig("AIzaSyCGXTsFk3C8W5k8pA2rLmbv6jag8CJ95_8"));
         }
         
