@@ -24,6 +24,8 @@ namespace WebFinalProject.Models
         public string ConfirmPassword { get; set; }
 
         public string Role { get; set; }
+
+        //public bool IsFaculty { get; set; }
     }
 }
 

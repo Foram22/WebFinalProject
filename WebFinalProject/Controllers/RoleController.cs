@@ -33,14 +33,17 @@ namespace WebFinalProject.Controllers
                         {
                             var firebaseClient = new FirebaseClient("https://facultymeets-default-rtdb.firebaseio.com/");
                             var userRef = firebaseClient.Child("users");
-                            //var userToUpdate = (await userRef.Child(userModel.Id).OnceAsync<UserModel>()).FirstOrDefault();
-                            //var userToUpdate = (await userRef.OrderBy("Id").EqualTo(userModel.Id).OnceAsync<UserModel>()).FirstOrDefault();
                             var userToUpdate = userRef.Child(userModel.Id);
 
                             if (userToUpdate != null)
                             {
                                 userModel.Role = role;
                                 await userToUpdate.PutAsync(userModel);
+
+                                if(role.Equals("faculty"))
+                                {
+                                    var result = firebaseClient.Child("faculty").Child(userModel.Id).PutAsync(userModel);
+                                }
                                 return RedirectToAction("Login", "Login");
                             }
                             else
