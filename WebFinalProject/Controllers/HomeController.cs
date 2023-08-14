@@ -5,12 +5,12 @@ using WebFinalProject.Models;
 
 namespace WebFinalProject.Controllers;
 
-public class DashboardController : Controller
+public class HomeController : Controller
 {
     UserModel userModel = new UserModel();
 
     //[FetchUser]
-    public IActionResult Dashboard()
+    public IActionResult Home()
     {
         string? serializedUser = TempData["User"] as string;
         userModel = new UserModel();
@@ -18,7 +18,7 @@ public class DashboardController : Controller
         {
             userModel = JsonConvert.DeserializeObject<UserModel>(serializedUser);
         }
-        return RedirectToAction("Home", "Home");
+        return View(userModel);
     }
 
     //public ActionResult Home()

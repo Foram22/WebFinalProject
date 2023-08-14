@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Views/Shared/_LayoutWithTabs.cshtml";
+}
+
+<body>
+    <div>
+        <h3 style="color: palevioletred; font-weight: bold; font-size: 20px">Welcome! Foram</h3>
+    </div>
+
+    <div style="padding: 10px; background-color: palevioletred; display: flex; width: 100%">
+        <input type="text" id="searchQuery" name="q" class="form-control" placeholder="Search for Faculty." style="padding: 5px;width: 100%">
+        <button type="submit" style="color: white; background-color: palevioletred; font-weight: bold; right: 0; border: none; font-size: 20px;">Search</button>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <label style="font-weight: bold; color: palevioletred; font-weight: 17px;">Upcoming Meetings</label>
+        <div style="display: flex; overflow-x: auto; white-space: nowrap">
+            <div style="display: flex">
+                @*@foreach (var item in Model)
+                    {
+                        <div style="width: 250px; background-color: palevioletred; padding: 10px; border-radius: 5px; margin: 10px;">
+                            <label style="font-weight: bold; color: white; font-weight: 16px;">@item</label>
+                            <div style="margin-top: 10px; background-color: white; padding: 10px; display: flex; flex-direction: column;">
+                                <label style="color: black;">@item</label>
+                                <label style="color: black; margin-top: 5px;">@item</label>
+                            </div>
+                        </div>
+                    }*@
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <label style="font-weight: bold; color: palevioletred; font-weight: 17px;">Previous Meetings</label>
+        <div style="display: flex; overflow-x: auto; white-space: nowrap">
+            <div style="display: flex">
+                @*@foreach (var item in Model)
+                    {
+                        <div style="width: 250px; background-color: palevioletred; padding: 10px; border-radius: 5px; margin: 10px;">
+                            <label style="font-weight: bold; color: white; font-weight: 16px;">@item</label>
+                            <div style="margin-top: 10px; background-color: white; padding: 10px; display: flex; flex-direction: column;">
+                                <label style="color: black;">@item</label>
+                                <label style="color: black; margin-top: 5px;">@item</label>
+                            </div>
+                        </div>
+                    }*@
+            </div>
+        </div>
+    </div>
+</body>

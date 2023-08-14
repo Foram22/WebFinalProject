@@ -3,12 +3,50 @@
     Layout = "~/Views/Shared/_LayoutWithTabs.cshtml";
 }
 
-<div>
-    <h3 style="color: palevioletred; font-weight: bold; font-size: 20px">Welcome! Foram</h3>
-</div>
+<body>
 
-<div style="position: fixed; width: 100%; left: 0; bottom: 0; background-color: palevioletred; display: flex; justify-content: space-around; padding: 10px;">
-    <a href="@Url.Action("Home", "Dashboard")" style="color: white; font-weight: bold; font-size: 20px; text-decoration: none">Home</a>
-    <a href="@Url.Action("Setting", "Dashboard")" style="color: white; font-weight: bold; font-size: 20px; text-decoration: none">Setting</a>
-    <a href="@Url.Action("Profile", "Dashboard")" style="color: white; font-weight: bold; font-size: 20px; text-decoration: none">Profile</a>
-</div>
+    <div id="sidebar" style="height: 100%; width: 250px; position: fixed; top: 0; left: 0; overflow-x: hidden; padding-top: 20px; background-color: palevioletred">
+
+        <ul class="list-unstyled components">
+            <li style="height: 50px;">
+                <a href="@Url.Action("Home", "Home")" class="sidebar-link" data-item="dashboard"><i class="dashboard" style="color: white; font-weight: bold; font-size: 20px; "></i> Dashboard</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Faculty", "Faculty")" class="sidebar-link" data-item="faculty"><i class="faculty"></i> Faculty</a>
+            </li>
+            <li>
+                <a href="@Url.Action("Profile", "Profile")" class="sidebar-link" data-item="profile"><i class="profile"></i> Profile</a>
+            </li>
+        </ul>
+    </div>
+
+
+    <!-- Main content -->
+    <div id="content" style="margin-left: 250px; padding: 20px;">
+        
+    </div>
+
+    @*<script>
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const selectedItem = link.getAttribute('data-item');
+                    handleSidebarItemClick(selectedItem);
+                });
+            });
+
+            function handleSidebarItemClick(item) {
+                // Hide all content sections
+                document.querySelectorAll('.content-section').forEach(section => {
+                    section.style.display = 'none';
+                });
+
+                // Show the content section for the selected item
+                const contentSection = document.getElementById(`${item}-content`);
+                if (contentSection) {
+                    contentSection.style.display = 'block';
+                }
+            }</script>*@
+
+</body>

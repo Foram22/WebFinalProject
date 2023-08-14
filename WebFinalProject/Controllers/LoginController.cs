@@ -40,7 +40,7 @@ namespace WebFinalProject.Controllers
                     var currentUser = users.Child(userId);
 
                     TempData["User"] = JsonConvert.SerializeObject(currentUser);
-                    return RedirectToAction("Home", "Dashboard");
+                    return RedirectToAction("Dashboard", "Dashboard");
                 }
                 else {
                     ViewBag.ErrorMessage = "Email ID does not exist. Please register email id first and then login again.";
