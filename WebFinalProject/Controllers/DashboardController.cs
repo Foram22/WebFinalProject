@@ -1,5 +1,6 @@
-﻿using System.Diagnostics;
+﻿using Firebase.Database;
 using Microsoft.AspNetCore.Mvc;
+using WebFinalProject.Models;
 
 namespace WebFinalProject.Controllers;
 
@@ -8,7 +9,7 @@ public class DashboardController : Controller
 
     public IActionResult Dashboard()
     {
-        
+           
         return View();
     }
 
@@ -30,10 +31,16 @@ public class DashboardController : Controller
         return View();
     }
 
-    public IActionResult Faculty()
+    public async Task<IActionResult> FacultyAsync()
     {
-        
-        return View();
+        var firebaseClient = new FirebaseClient("https://facultymeets-default-rtdb.firebaseio.com/");
+        var faculties = await firebaseClient.Child("faculty").OnceAsync<FacultyModel>();
+        var facultyData = faculties.Select(item => new FacultyModel
+        {
+            Id = item.Object.Id,
+            Name = item.Object.Name,
+        }).ToList();
+        return View(facultyData);
     }
 }
 
