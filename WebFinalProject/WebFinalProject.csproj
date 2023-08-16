@@ -15,9 +15,7 @@
     <None Remove="Views\ForgotPassword\" />
     <None Remove="Views\Register\" />
     <None Remove="Views\Role\" />
-    <None Remove="Views\Faculty\" />
-    <None Remove="Views\Profile\" />
-    <None Remove="Views\Home\" />
+    <None Remove="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />
@@ -26,9 +24,7 @@
     <Folder Include="Views\ForgotPassword\" />
     <Folder Include="Views\Register\" />
     <Folder Include="Views\Role\" />
-    <Folder Include="Views\Faculty\" />
-    <Folder Include="Views\Profile\" />
-    <Folder Include="Views\Home\" />
+    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Content Update="Views\Splash\Index.cshtml">
@@ -64,13 +60,13 @@
     <Content Update="Views\Dashboard\Login.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Views\Profile\Profile.cshtml">
+    <Content Update="Views\Dashboard\Home.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Views\Faculty\Faculty.cshtml">
+    <Content Update="Views\Dashboard\Faculty.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Update="Views\Home\Home.cshtml">
+    <Content Update="Views\Dashboard\Profile.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -82,5 +78,6 @@
   <ItemGroup>
     <PackageReference Include="Firebase.Auth" Version="1.0.0" />
     <PackageReference Include="Firebase.Database" Version="1.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
   </ItemGroup>
 </Project>

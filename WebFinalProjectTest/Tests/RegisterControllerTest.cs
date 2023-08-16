@@ -56,8 +56,8 @@ namespace WebFinalProject.WebFinalProjectTest.Tests
             Assert.IsNotNull(result);
             Assert.IsInstanceOf<ViewResult>(result);
 
-            var viewResult = (ViewResult)result;
-            Assert.That(viewResult.ViewName, Is.EqualTo(string.Empty)); // Ensure no specific view name
+            var viewResult = result as ViewResult;
+            Assert.That(actual: viewResult.ViewName, Is.EqualTo(string.Empty)); // Ensure no specific view name
             Assert.IsTrue(registerController.ModelState.ContainsKey(nameof(name))); // Check for a model state error for the name field
         }
     }

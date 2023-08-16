@@ -1,34 +1,39 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using WebFinalProject.Models;
 
 namespace WebFinalProject.Controllers;
 
 public class DashboardController : Controller
 {
-    UserModel userModel = new UserModel();
 
-    //[FetchUser]
     public IActionResult Dashboard()
     {
-        string? serializedUser = TempData["User"] as string;
-        userModel = new UserModel();
-        if (!string.IsNullOrEmpty(serializedUser))
-        {
-            userModel = JsonConvert.DeserializeObject<UserModel>(serializedUser);
-        }
-        return RedirectToAction("Home", "Home");
+        
+        return View();
     }
 
-    //public ActionResult Home()
-    //{
-        //List<string> items = new List<string>
-        //{
-        //    "Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6", "Item 5", "Item 6"  // Add more items as needed
-        //};
+    public IActionResult Home()
+    {
+        
+        return View();
+    }
 
-        //return View(userModel);
-    //}
+    public IActionResult Profile()
+    {
+        
+        return View();
+    }
+
+    public IActionResult Availability()
+    {
+        
+        return View();
+    }
+
+    public IActionResult Faculty()
+    {
+        
+        return View();
+    }
 }
 

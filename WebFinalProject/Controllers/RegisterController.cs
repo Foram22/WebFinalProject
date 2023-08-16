@@ -46,7 +46,7 @@ namespace WebFinalProject.Controllers
                     Password = password,
                     Role = "Student"
                 };
-                users.Child(userId).PutAsync(newUser);
+                _ = users.Child(userId).PutAsync(newUser);
 
                 newUser.Id = userId;
 

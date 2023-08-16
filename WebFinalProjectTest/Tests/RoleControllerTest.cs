@@ -19,7 +19,7 @@ namespace WebFinalProject.WebFinalProjectTest.Tests
             var roleController = new RoleController();
 
             // Act
-            var result = roleController.Role(null) as ViewResult; // Passing a valid role name
+            var result = roleController.ViewBag as ViewResult; // Passing a valid role name
 
             // Assert
             Assert.IsNotNull(result);
@@ -28,6 +28,5 @@ namespace WebFinalProject.WebFinalProjectTest.Tests
 
         // Add more tests for other scenarios if needed
     }
-}
 }
 
