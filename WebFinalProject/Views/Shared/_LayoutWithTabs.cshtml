@@ -8,12 +8,12 @@
         <aside class="sidebar" style="height: 100%; width: 250px; position: fixed; top: 0; left: 0; overflow-x: hidden; padding-top: 20px; background-color: palevioletred">
 
             <ul>
-                <li>
+                <li style="padding: 10px;">
                     @Html.ActionLink("Home", "Home", "Dashboard", null, new { style = "color: white; font-weight: bold; height: 50px; font-size: 18px; padding: 10px;" })
                 </li>
 
 
-                <li>
+                <li style="padding: 10px;">
                     @Html.ActionLink("Profile", "Profile", "Dashboard", null, new { style = "color: white; font-weight: bold; height: 50px; font-size: 18px; padding: 10px;" })
                 </li>
 
@@ -22,13 +22,13 @@
                     var userRole = Context.Request.Cookies["UserRole"];
                     @if (userRole == "faculty" || userRole == "Faculty")
                     {
-                        <li>
+                        <li style="padding: 10px;">
                             @Html.ActionLink("Availability", "Availability", "Dashboard", null, new { style = "color: white; font-weight: bold; height: 50px; font-size: 18px; padding: 10px;" })
                         </li>
                     }
                     else
                     {
-                        <li>
+                        <li style="padding: 10px;">
                             @Html.ActionLink("Faculty", "Faculty", "Dashboard", null, new { style = "color: white; font-weight: bold; height: 50px; font-size: 18px; padding: 10px;" })
                         </li>
                     }

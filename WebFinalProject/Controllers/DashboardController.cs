@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using WebFinalProject.Models;
 using WebFinalProject.ViewModels;
+using Newtonsoft.Json;
 
 namespace WebFinalProject.Controllers;
 
@@ -22,8 +23,14 @@ public class DashboardController : Controller
 
     public IActionResult Profile()
     {
-        
-        return View();
+        string jsonStr = Request.Cookies["UserModel"];
+        UserModel userModel = JsonConvert.DeserializeObject<UserModel>(jsonStr);
+        return View(userModel);
+    }
+
+    public IActionResult Logout()
+    {
+        return RedirectToAction("Login", "Login");
     }
 
     public IActionResult Availability()

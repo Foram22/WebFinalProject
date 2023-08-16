@@ -3,7 +3,21 @@
     Layout = "~/Views/Shared/_LayoutWithTabs.cshtml";
 }
 
+@model WebFinalProject.Models.UserModel
 <div class="content-section" id="profile-content">
-    <h1>Welcome to the Profile Page</h1>
-    <!-- Add Home-specific content here -->
+    <h1 style="color: palevioletred; text-align:center;">Profile</h1>
+</div>
+
+<div style="border: solid; border-color: palevioletred; border-width: 1px; border-radius: 5px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); padding: 20px;">
+    <p><strong style="color: palevioletred; font-size: 17px;">Name:</strong> @Model.Name</p>
+    <p><strong style="color: palevioletred; font-size: 17px;">Email:</strong> @Model.Email</p>
+    <p><strong style="color: palevioletred; font-size: 17px;">Role:</strong> @Model.Role</p>
+
+</div>
+
+
+@*<button type="submit" style="color: white; background-color: palevioletred; padding: 10px; border: none; border-radius: 7px; font-weight: bold; font-size: 20px; bottom: 20px; position: fixed; right: 20px; left: px;">Logout</button>*@
+
+<div>
+    @Html.ActionLink("Logout", "Logout", "Dashboard", null, new { style = "background-color: palevioletred; color: white; padding: 10px; text-decoration: none; border-radius: 10px; position: fixed; bottom: 0px; left: 250px; right: 0px; margin: 20px; text-align: center; font-size: 20px;" })
 </div>

@@ -66,6 +66,7 @@ namespace WebFinalProject.Controllers
                     }
 
                     Response.Cookies.Append("UserRole", role, cookieOptions);
+                    Response.Cookies.Append("UserModel", JsonConvert.SerializeObject(userModel), cookieOptions);
 
                     return RedirectToAction("Home", "Dashboard");
                 }
