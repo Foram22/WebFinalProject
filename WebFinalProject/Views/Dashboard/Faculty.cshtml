@@ -3,24 +3,34 @@
     Layout = "~/Views/Shared/_LayoutWithTabs.cshtml";
 }
 
-@model IEnumerable<WebFinalProject.Models.FacultyModel>
+@model WebFinalProject.ViewModels.FacultyViewModel
+
+@using (Html.BeginForm("Faculty", "Dashboard", FormMethod.Get))
+    {
+        @Html.TextBoxFor(m => m.SearchTerm, new { @style = "padding: 10px; width: 100%;", placeholder = "Search Faculty.."})
+        <input type="submit" value="Search" style="background-color: palevioletred; color: white; font-weight: bold; font-size: 17px; padding: 7px; margin-top: 5px;"/>
+    }
+
 <body>
-    <div style="padding: 10px; background-color: palevioletred; display: flex; width: 100%">
-        <input type="text" id="searchQuery" name="q" class="form-control" placeholder="Search for Faculty." style="padding: 5px;width: 100%">
-        <button type="submit" style="color: white; background-color: palevioletred; font-weight: bold; right: 0; border: none; font-size: 20px;">Search</button>
-    </div>
 
-    <table style="margin-top: 20px; width: 100%">
+    @if (Model.Faculties.Any())
+    {
+        <table style="margin-top: 20px; width: 100%">
 
-        <tbody style="width: 100%">
-            @foreach (var faculty in Model)
-            {
-                <tr style="width: 100%;">
-                    <td style="color: palevioletred; font-size: 17px; font-weight: bold; padding: 10px; border: solid; border-color: palevioletred; border-width: 2px; width: 100%; margin-top: 7px;">@faculty.Name</td>
-                </tr>
-            }
-        </tbody>
-    </table>
-    
+            <tbody style="width: 100%; margin-top: 7px;">
+                @foreach (var faculty in Model.Faculties)
+                {
+                    <tr style="width: 100%; margin-top: 10px;">
+                        <td style="color: palevioletred; font-size: 17px; font-weight: bold; padding: 10px; border: solid; border-color: palevioletred; border-width: 2px; width: 100%; border-radius: 10px;">@faculty.Name</td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    }
+    else
+    {
+        <p>No faculties found for "@Model.SearchTerm".</p>
+    }
 
 </body>

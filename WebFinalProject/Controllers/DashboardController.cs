@@ -1,6 +1,7 @@
 ﻿using Firebase.Database;
 using Microsoft.AspNetCore.Mvc;
 using WebFinalProject.Models;
+using WebFinalProject.ViewModels;
 
 namespace WebFinalProject.Controllers;
 
@@ -31,7 +32,7 @@ public class DashboardController : Controller
         return View();
     }
 
-    public async Task<IActionResult> FacultyAsync()
+    public async Task<IActionResult> FacultyAsync(string searchTerm)
     {
         var firebaseClient = new FirebaseClient("https://facultymeets-default-rtdb.firebaseio.com/");
         var faculties = await firebaseClient.Child("faculty").OnceAsync<FacultyModel>();
@@ -40,7 +41,18 @@ public class DashboardController : Controller
             Id = item.Object.Id,
             Name = item.Object.Name,
         }).ToList();
-        return View(facultyData);
+
+        if (!string.IsNullOrEmpty(searchTerm))
+        {
+            facultyData = facultyData.Where(f => f.Name.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)).ToList();
+        }
+
+        var viewModel = new FacultyViewModel
+        {
+            Faculties = facultyData,
+            SearchTerm = searchTerm
+        };
+        return View(viewModel);
     }
 }
 
