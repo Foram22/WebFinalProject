@@ -3,41 +3,24 @@
     Layout = "~/Views/Shared/_LayoutWithTabs.cshtml";
 }
 
-@*@model WebFinalProject.Models.UserModel*@
+@model IEnumerable<WebFinalProject.Models.AppointmentModel>
 <body id="content">
     <div style="margin-top: 30px;">
-        <label style="font-weight: bold; color: palevioletred; font-weight: 17px;">Upcoming Meetings</label>
-        <div style="display: flex; overflow-x: auto; white-space: nowrap">
-            <div style="display: flex">
-                @*@foreach (var item in Model)
-                    {
-                        <div style="width: 250px; background-color: palevioletred; padding: 10px; border-radius: 5px; margin: 10px;">
-                            <label style="font-weight: bold; color: white; font-weight: 16px;">@item</label>
-                            <div style="margin-top: 10px; background-color: white; padding: 10px; display: flex; flex-direction: column;">
-                                <label style="color: black;">@item</label>
-                                <label style="color: black; margin-top: 5px;">@item</label>
-                            </div>
+        <label style="font-weight: bold; color: palevioletred; font-weight: 17px;">Meetings</label>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); overflow-x: auto; white-space: nowrap">
+            @*<div style="display: flex">*@
+                @foreach (var item in Model)
+                {
+                    <div style="width: 250px; background-color: palevioletred; padding: 10px; border-radius: 5px; margin: 10px;">
+                        <label style="font-weight: bold; color: white; font-weight: 16px;">@item.Name</label>
+                        <div style="margin-top: 10px; background-color: white; padding: 10px; display: flex; flex-direction: column;">
+                            <label style="color: black;">@item.AppointmentStartTime</label>
+                            <label style="color: black; margin-top: 5px;">@item.AppointmentEndTime</label>
                         </div>
-                    }*@
-            </div>
+                    </div>
+                }
+            @*</div>*@
         </div>
     </div>
 
-    <div style="margin-top: 30px;">
-        <label style="font-weight: bold; color: palevioletred; font-weight: 17px;">Previous Meetings</label>
-        <div style="display: flex; overflow-x: auto; white-space: nowrap">
-            <div style="display: flex">
-                @*@foreach (var item in Model)
-                    {
-                        <div style="width: 250px; background-color: palevioletred; padding: 10px; border-radius: 5px; margin: 10px;">
-                            <label style="font-weight: bold; color: white; font-weight: 16px;">@item</label>
-                            <div style="margin-top: 10px; background-color: white; padding: 10px; display: flex; flex-direction: column;">
-                                <label style="color: black;">@item</label>
-                                <label style="color: black; margin-top: 5px;">@item</label>
-                            </div>
-                        </div>
-                    }*@
-            </div>
-        </div>
-    </div>
 </body>

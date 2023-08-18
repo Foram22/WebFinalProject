@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using WebFinalProject.Models;
 using WebFinalProject.ViewModels;
 using Newtonsoft.Json;
+using Firebase.Database.Query;
+using Firebase.Auth;
 
 namespace WebFinalProject.Controllers;
 
@@ -15,10 +17,65 @@ public class DashboardController : Controller
         return View();
     }
 
-    public IActionResult Home()
+    public async Task<IActionResult> HomeAsync()
     {
-        
-        return View();
+        string jsonStr = Request.Cookies["UserModel"];
+        UserModel userModel = JsonConvert.DeserializeObject<UserModel>(jsonStr);
+
+        var firebaseClient = new FirebaseClient("https://facultymeets-default-rtdb.firebaseio.com/");
+        var appointments = await firebaseClient.Child("users").Child(userModel.Id).Child("appointments").OnceAsync<AppointmentModel>();
+        var appointmentList = new List<AppointmentModel>();
+
+        foreach (var item in appointments)
+        {
+            var name = await GetNameFromDB(item.Object, userModel);
+            var appointment = new AppointmentModel
+            {
+                AppointmentEndTime = item.Object.AppointmentEndTime,
+                AppointmentStartTime = item.Object.AppointmentStartTime,
+                FacultyId = item.Object.FacultyId,
+                StudentId = item.Object.StudentId,
+                Name = name
+            };
+
+            appointmentList.Add(appointment);
+        }
+
+        return View(appointmentList);
+    }
+
+    private async Task<string> GetNameFromDB(AppointmentModel appointment, UserModel userModel)
+    {
+        UserModel user;
+        var firebaseClient = new FirebaseClient("https://facultymeets-default-rtdb.firebaseio.com/");
+
+        if (userModel.Role == "Faculty" || userModel.Role == "faculty")
+        {
+            var users = await firebaseClient.Child("users").Child(appointment.StudentId).OnceSingleAsync<UserModel>();
+            user = new UserModel
+            {
+                Name = users.Name,
+                Email = users.Email,
+                Password = users.Password,
+                Id = users.Id,
+                Role = users.Role
+            };
+        }
+        else
+        {
+            var users = await firebaseClient.Child("users").Child(appointment.FacultyId).OnceSingleAsync<UserModel>();
+            user = new UserModel
+            {
+                Name = users.Name,
+                Email = users.Email,
+                Password = users.Password,
+                Id = users.Id,
+                Role = users.Role
+            };
+        }
+
+
+        return user.Name;
     }
 
     public IActionResult Profile()
