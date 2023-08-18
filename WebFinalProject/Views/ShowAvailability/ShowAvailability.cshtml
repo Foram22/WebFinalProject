@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Show Availability";
+}
+
+
+<head>
+    <!-- Include toastr CSS and JS files -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+</head>
+
+<body style="text-align: center">
+
+    @model IEnumerable<WebFinalProject.Models.AvailabilityModel>
+
+    <h2 style="color:palevioletred; font-weight:bold">Availability</h2>
+
+    @foreach (var availability in Model)
+    {
+        using (Html.BeginForm("Appointment", "ShowAvailability", FormMethod.Post))
+        {
+            <div style="padding: 10px; border: solid; display:flex; border-color: palevioletred; border-width: 2px; width: 100%; border-radius: 10px; display: block; margin-top: 10px;">
+
+                <label style="font-weight: bold">From: </label>
+                <label style="color: black;">@availability.StartTime.ToString()</label>
+                <label style="font-weight: bold"> To: </label>
+                <label style="color:black;">@availability.EndTime.ToString()</label>
+
+            </div>
+
+            @Html.Hidden("modelData", Newtonsoft.Json.JsonConvert.SerializeObject(availability))
+            <input type="submit" class="availability-item-btn" />
+        }
+    }
+
+
+    @if (!string.IsNullOrEmpty(ViewBag.ToastMessage))
+    {
+        <script type="text/javascript">
+            toastr.success('@ViewBag.ToastMessage');
+        </script>
+    }
+
+</body>
+
+

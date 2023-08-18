@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Role";
+}
+
+@model WebFinalProject.Models.AvailabilityModel
+
+<h2>Confirm Appointment</h2>
+<p>Do you want to confirm the appointment from @Model.StartTime to @Model.EndTime?</p>
+
+<a href="@Url.Action("BookAppointment", new { facultyId = Model.FacultyId, startTime = Model.StartTime, endTime = Model.EndTime, id = Model.Id, })">Yes</a>
+<a href="@Url.Action("ShowAvailability")">No</a>
+
+

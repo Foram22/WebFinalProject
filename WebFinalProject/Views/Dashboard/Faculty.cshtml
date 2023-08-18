@@ -11,7 +11,7 @@
         <input type="submit" value="Search" style="background-color: palevioletred; color: white; font-weight: bold; font-size: 17px; padding: 7px; margin-top: 5px;"/>
     }
 
-<body>
+<body style="margin-top: 20px;">
 
     @if (Model.Faculties.Any())
     {
@@ -21,7 +21,7 @@
                 @foreach (var faculty in Model.Faculties)
                 {
                     <tr style="width: 100%; margin-top: 10px;">
-                        <td style="color: palevioletred; font-size: 17px; font-weight: bold; padding: 10px; border: solid; border-color: palevioletred; border-width: 2px; width: 100%; border-radius: 10px;">@faculty.Name</td>
+                        <a href="@Url.Action("ShowAvailability", "ShowAvailability", new { id = faculty.Id })" style="color: palevioletred; font-size: 17px; font-weight: bold; padding: 10px; border: solid; border-color: palevioletred; border-width: 2px; width: 100%; border-radius: 10px; display: block; margin-top: 10px;">@faculty.Name</a>
                     </tr>
                 }
             </tbody>
