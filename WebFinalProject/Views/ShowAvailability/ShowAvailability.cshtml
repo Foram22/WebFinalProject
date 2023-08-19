@@ -16,26 +16,33 @@
 
     <h2 style="color:palevioletred; font-weight:bold">Availability</h2>
 
-    @foreach (var availability in Model)
+    @if (Model.Any())
     {
-        using (Html.BeginForm("Appointment", "ShowAvailability", FormMethod.Post))
+        @foreach (var availability in Model)
         {
-            <div style="padding: 10px; border: solid; display:flex; border-color: palevioletred; border-width: 2px; width: 100%; border-radius: 10px; display: block; margin-top: 10px;">
-
-                <label style="font-weight: bold">From: </label>
-                <label style="color: black;">@availability.StartTime.ToString()</label>
-                <label style="font-weight: bold"> To: </label>
-                <label style="color:black;">@availability.EndTime.ToString()</label>
-
-            </div>
-
-            @Html.Hidden("modelData", Newtonsoft.Json.JsonConvert.SerializeObject(availability))
-            if (!ViewBag.IsFaculty)
+            using (Html.BeginForm("Appointment", "ShowAvailability", FormMethod.Post))
             {
-                <input type="submit" class="availability-item-btn" />
-            }
+                <div style="padding: 10px; border: solid; display:flex; border-color: palevioletred; border-width: 2px; width: 100%; border-radius: 10px; display: block; margin-top: 10px;">
 
+                    <label style="font-weight: bold">From: </label>
+                    <label style="color: black;">@availability.StartTime.ToString()</label>
+                    <label style="font-weight: bold"> To: </label>
+                    <label style="color:black;">@availability.EndTime.ToString()</label>
+
+                </div>
+
+                @Html.Hidden("modelData", Newtonsoft.Json.JsonConvert.SerializeObject(availability))
+                if (!ViewBag.IsFaculty)
+                {
+                    <input type="submit" class="availability-item-btn" />
+                }
+
+            }
         }
+    }
+    else
+    {
+        <p>There is no availability for the selected faculty.</p>
     }
 
 

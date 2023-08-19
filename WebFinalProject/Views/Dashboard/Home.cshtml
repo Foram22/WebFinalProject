@@ -6,9 +6,12 @@
 @model IEnumerable<WebFinalProject.Models.AppointmentModel>
 <body id="content">
     <div style="margin-top: 30px;">
-        <label style="font-weight: bold; color: palevioletred; font-weight: 17px;">Meetings</label>
-        <div style="display: grid; grid-template-columns: repeat(2, 1fr); overflow-x: auto; white-space: nowrap">
-            @*<div style="display: flex">*@
+
+        @if (Model.Any())
+        {
+            <label style="font-weight: bold; color: palevioletred; font-weight: 17px;">Meetings</label>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); overflow-x: auto; white-space: nowrap">
+                @*<div style="display: flex">*@
                 @foreach (var item in Model)
                 {
                     <div style="width: 250px; background-color: palevioletred; padding: 10px; border-radius: 5px; margin: 10px;">
@@ -19,8 +22,13 @@
                         </div>
                     </div>
                 }
-            @*</div>*@
-        </div>
+                @*</div>*@
+            </div>
+        }
+        else
+        {
+            <p>You don't have any appointments.</p>
+        }
     </div>
 
 </body>
