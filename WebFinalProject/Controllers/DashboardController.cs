@@ -4,7 +4,7 @@ using WebFinalProject.Models;
 using WebFinalProject.ViewModels;
 using Newtonsoft.Json;
 using Firebase.Database.Query;
-using Firebase.Auth;
+using System.Globalization;
 
 namespace WebFinalProject.Controllers;
 
@@ -13,7 +13,7 @@ public class DashboardController : Controller
 
     public IActionResult Dashboard()
     {
-           
+
         return View();
     }
 
@@ -90,10 +90,26 @@ public class DashboardController : Controller
         return RedirectToAction("Login", "Login");
     }
 
+    [HttpPost]
+    public async Task<IActionResult> Availability(AvailabilityModel model)
+    {
+        string jsonStr = Request.Cookies["UserModel"];
+        UserModel userModel = JsonConvert.DeserializeObject<UserModel>(jsonStr);
+
+        var firebaseClient = new FirebaseClient("https://facultymeets-default-rtdb.firebaseio.com/");
+
+        model.FacultyId = userModel.Id;
+
+        await firebaseClient.Child("users").Child(userModel.Id).Child("availabilities").PostAsync(model);
+        await firebaseClient.Child("faculty").Child(userModel.Id).Child("availabilities").PostAsync(model);
+        return RedirectToAction("ShowAvailability","ShowAvailability", new { id = userModel.Id});
+    }
+
+    // GET: Show the availability form
+    [HttpGet]
     public IActionResult Availability()
     {
-        
-        return View();
+        return View(new AvailabilityModel());
     }
 
     public async Task<IActionResult> FacultyAsync(string searchTerm)

@@ -31,6 +31,14 @@ public class ShowAvailabilityController : Controller
             EndTime = item.Object.EndTime
         }).ToList();
 
+        if (userModel.Role == "faculty" || userModel.Role == "Faculty") {
+            ViewBag.IsFaculty = true;
+        }
+        else
+        {
+            ViewBag.IsFaculty = false;
+        }
+        
         return View(availabilityData);
     }
 

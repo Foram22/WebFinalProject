@@ -30,7 +30,11 @@
             </div>
 
             @Html.Hidden("modelData", Newtonsoft.Json.JsonConvert.SerializeObject(availability))
-            <input type="submit" class="availability-item-btn" />
+            if (!ViewBag.IsFaculty)
+            {
+                <input type="submit" class="availability-item-btn" />
+            }
+
         }
     }
 

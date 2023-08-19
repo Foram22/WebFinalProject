@@ -3,13 +3,21 @@
     Layout = "~/Views/Shared/_LayoutWithTabs.cshtml";
 }
 
-@*@model WebFinalProject.Models.UserModel*@
-<body>
+@model WebFinalProject.Models.AvailabilityModel
 
+<h2 style="color:palevioletred; text-align:center">Add Availability</h2>
 
-    <!-- Main content -->
-    <div id="content" style="margin-left: 250px; padding: 20px;">
-        <h1>Welcome to the Availability Page</h1>
+<form asp-action="Availability" method="post">
+    <div style="margin: 10px;">
+        <label for="startDateTime" style="color:palevioletred; font-weight: bold;">Start Date and Time:  </label>
+        <input type="datetime-local" name="startDateTime" id="startDateTime">
     </div>
 
-</body>
+    <div style="margin: 10px;">
+        <label for="endDateTime" style="color:palevioletred; font-weight: bold;">End Date and Time:  </label>
+        <input type="datetime-local" name="endDateTime" id="endDateTime">
+    </div>
+
+
+    <button type="submit" value="Submit" style="width: 100px; background-color:palevioletred; color: white; font-size: 20px; padding: 10px; border:none; border-radius: 5px;">Submit</button>
+</form>
